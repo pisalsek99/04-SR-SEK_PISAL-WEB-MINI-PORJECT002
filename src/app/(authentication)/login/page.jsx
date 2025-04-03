@@ -1,9 +1,7 @@
-'use client'
 import React from "react";
 import LoginComponent from "../_components/login";
 
 export default function LoginPage() {
-  
   return (
     <main>
       <div className="space-y-6 w-1/3 mx-auto bg-white drop-shadow-light-steel-blue p-12 rounded-3xl ">
