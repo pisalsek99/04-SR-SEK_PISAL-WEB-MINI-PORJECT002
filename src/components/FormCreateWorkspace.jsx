@@ -1,57 +1,76 @@
-"use client"
-import React, { useState } from 'react';
-import { X } from 'lucide-react';
+import React, { useState } from "react";
+// import { createWorkSpace } from "@/service/workSpaceService";
 
 const FormCreateWorkspace = () => {
-  const [workspaceName, setWorkspaceName] = useState('');
-  const [isOpen, setIsOpen] = useState(true); // State to control form visibility
+  const [workspaceName, setWorkspaceName] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Workspace Name:', workspaceName);
-  };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setLoading(true);
+  //   setError(null);
+  //   setSuccess(false);
 
-  if (!isOpen) return null;
+  //   try {
+  //     if (!workspaceName.trim()) {
+  //       setError("Workspace name cannot be empty.");
+  //       return;
+  //     }
+
+  //     const data = await createWorkSpace(workspaceName);
+  //     console.log("Workspace created successfully:", data);
+  //     setSuccess(true);
+  //     setWorkspaceName(""); // Clear input after success
+  //   } catch (err) {
+  //     console.error("Error creating workspace:", err);
+  //     setError(err.message || "An error occurred while creating the workspace.");
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
   return (
-    <main className="relative min-h-screen flex items-center justify-center bg-gray-200">
-  
-  <div 
-  className="fixed inset-0 bg-opacity-40 backdrop-blur-md z-0"
-  onClick={() => setIsOpen(false)} 
-></div>
+    <main>
+      <div className="space-y-6 w-full max-w-sm mx-auto bg-white p-8 rounded-3xl relative">
+        <h1 className="font-bold text-3xl text-center mb-6 text-gray-800">
+          Create Workspace
+        </h1>
 
-     
-      <div className="relative z-10 space-y-6 w-full max-w-md mx-auto bg-white p-12 rounded-3xl shadow-lg">
-      
-        <button 
-          onClick={() => setIsOpen(false)}
-          className="absolute top-4 right-4 text-gray-600 hover:text-red-500 transition"
-        >
-          <X size={24} />
-        </button>
-
-        <h1 className="font-bold text-3xl text-center">Create Workspace</h1>
-        <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Workspace Name</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Workspace Name
+            </label>
             <input
+              id="workspaceName"
               type="text"
               value={workspaceName}
               onChange={(e) => setWorkspaceName(e.target.value)}
               placeholder="Enter workspace name"
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-red-500"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 transition"
               required
             />
           </div>
+          {error && <p className="text-red-500 text-sm">{error}</p>}
+          {success && (
+            <p className="text-green-500 text-sm">
+              Workspace created successfully!
+            </p>
+          )}
           <button
             type="submit"
-            className="w-full bg-red-500 text-white py-2 rounded-lg font-bold hover:bg-red-600 transition"
+            className={`w-full ${loading ? "bg-gray-400" : "bg-red-500"} text-white py-3 rounded-lg font-bold hover:bg-red-600 transition shadow-sm`}
+            disabled={loading}
           >
-            Create
+            {loading ? "Creating..." : "Create"}
           </button>
         </form>
-        <p className="text-center text-gray-400 mt-4">&copy; Copyright | 2025 Monster</p>
+
+        <div className="text-center mt-6 text-gray-500 text-sm space-y-1">
+          <p>&copy; 2025 Monster</p>
+        </div>
       </div>
     </main>
   );

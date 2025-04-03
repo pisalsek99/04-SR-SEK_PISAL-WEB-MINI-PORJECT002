@@ -94,7 +94,7 @@ const TaskManager = () => {
 
   const handleTaskFormSubmit = (task) => {
     console.log('Task Created:', task);
-
+    // Keep the form open, just log the task
   };
 
   const closeModal = () => {

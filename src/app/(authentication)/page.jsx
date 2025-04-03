@@ -1,9 +1,9 @@
-import Image from "next/image";
 import CardComponent from "@/components/card";
 import FilterComponent from "@/components/FilterComponents";
 import NewTaskButton from "@/components/NewTaskButton";
 import SidebarlistComponent from "@/components/SidebarlistComponent";
 import UserAccountComponent from "@/components/UserAccountComponent";
+
 export default function Home() {
   return (
     <>
@@ -22,7 +22,7 @@ export default function Home() {
 
           <div className="flex-grow bg-gray-50 p-4 rounded-lg shadow flex flex-col">
             {" "}
-          
+            {/* Ensure the main content is a flex column */}
             <div className="flex justify-between items-center mb-6">
               <div className="flex flex-col items-start">
                 <span className="text-red-500 font-semibold">Not Started</span>
@@ -37,7 +37,7 @@ export default function Home() {
                 <hr className="w-93 border text-teal-200" />
               </div>
             </div>
-          
+            {/* Card Component Section */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
               <CardComponent />
               <CardComponent />
@@ -45,8 +45,23 @@ export default function Home() {
               {/* <CardComponent />
               <CardComponent />
               <CardComponent /> */}
+              {/* <CardComponent />
+              <CardComponent />
+              <CardComponent />
+              <CardComponent />
+              <CardComponent />
+              <CardComponent />
+              <CardComponent />
+              <CardComponent />
+              <CardComponent />
+              <CardComponent />
+              <CardComponent />
+              <CardComponent />
+              <CardComponent />
+              <CardComponent />
+              <CardComponent /> */}
             </div>
-         
+            {/* NewTaskButton positioned at the bottom-right */}
             <div className="mt-auto self-end">
               {" "}
               <NewTaskButton />

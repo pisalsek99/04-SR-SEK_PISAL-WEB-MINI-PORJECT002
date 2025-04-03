@@ -1,3 +1,4 @@
+import { Provider } from "@/context/provider";
 import "../globals.css";
 import Logo from "@/components/logo";
 
@@ -11,11 +12,16 @@ export const metadata = {
 
 export default function AuthenticationLayout({ children }) {
   return (
-    <>
-      <div className="container mx-auto my-12 p-4">
-        <Logo />
-      </div>
-      {children}
-    </>
+    <html lang="en">
+      <body className="text-charcoal">
+        <div className="container mx-auto my-12 pl-10">
+          <Logo />
+        </div>
+
+        <Provider>
+	          {children}
+         </Provider>
+      </body>
+    </html>
   );
 }
