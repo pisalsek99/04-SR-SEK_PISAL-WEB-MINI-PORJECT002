@@ -52,7 +52,7 @@ const handler = NextAuth(authOption);
 
 export { handler as GET, handler as POST };
 
-// export const authOption = {
+
 //   providers: [
 //     CredentialsProvider({
 //       // The name to display on the sign in form (e.g. 'Sign in with...')

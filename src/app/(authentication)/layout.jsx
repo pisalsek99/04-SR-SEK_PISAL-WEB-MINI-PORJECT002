@@ -12,7 +12,7 @@ export const metadata = {
 export default function AuthenticationLayout({ children }) {
   return (
     <>
-      <div className="container mx-auto my-12">
+      <div className="container mx-auto my-12 p-4">
         <Logo />
       </div>
       {children}

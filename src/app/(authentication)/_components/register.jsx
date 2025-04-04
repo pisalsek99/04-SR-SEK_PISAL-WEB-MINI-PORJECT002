@@ -54,8 +54,7 @@ export default function RegisterComponent() {
         />
         <ErrorInputMessageComponent message={errors?.username?.message} />
       </div>
-
-      {/* email */}
+      
       <div>
         <Label
           htmlFor="email"
