@@ -1,4 +1,3 @@
-import "../globals.css";
 import Logo from "@/components/logo";
 
 export const metadata = {
@@ -12,7 +11,7 @@ export const metadata = {
 export default function AuthenticationLayout({ children }) {
   return (
     <>
-      <div className="container mx-auto my-12 p-4">
+      <div className="container mx-auto my-12">
         <Logo />
       </div>
       {children}

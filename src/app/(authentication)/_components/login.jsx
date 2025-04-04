@@ -5,13 +5,12 @@ import { Label } from "@/components/ui/label";
 import { KeyRound, Mail } from "lucide-react";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
-import ErrorInputMessageComponent from "./ErrorInputMessageComponent";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema } from "@/lib/zod/loginSchema";
-
+import ErrorInputMessageComponent from "./ErrorInputMessageComponent";
 
 export default function LoginComponent() {
   const router = useRouter();
@@ -38,7 +37,7 @@ export default function LoginComponent() {
 
     reset();
     if (res?.status === 200) {
-      router.push("/");
+      router.push("/workspace");
     }
   };
 
@@ -96,7 +95,7 @@ export default function LoginComponent() {
       </Button>
 
       {/* underline */}
-      <div>            
+      <div>
         <div className="border-b border-b-light-steel-blue"></div>
         <div className="capitalize text-right mt-2 font-normal">
           create new account?{" "}
